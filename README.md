@@ -36,11 +36,11 @@ P_rad = integrate(integrate(S_theta * r**2 * sin(theta), (theta, 0, pi)), (phi, 
 Rr = 2 * P_rad / I**2
 
 print("$$")
-print(latex(P_rad))
+print(latex(P_rad.simplify(rational=True)))
 print("$$")
 
 print("$$")
-print(latex(Rr))
+print(latex(Rr.simplify(rational=True)))
 print("$$")
 ```
 
