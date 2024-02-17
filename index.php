@@ -43,7 +43,7 @@ function runPythonScript($code) {
 
 <form method="post" action="index.php">
     <label for="pythonCode">Enter Python Code:</label><br>
-    <textarea name="pythonCode" id="pythonCode" rows="5" cols="40"><?php if($pythonCode) echo $pythonCode; ?></textarea><br>
+    <textarea name="pythonCode" id="pythonCode" rows="20" cols="40"><?php if($pythonCode) echo $pythonCode; ?></textarea><br>
     <input type="submit" value="Run">
 </form>
 
