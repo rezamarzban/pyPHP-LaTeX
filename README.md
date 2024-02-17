@@ -1,7 +1,7 @@
 # pyPHP-LaTeX
-Python interpreter in PHP with built-in Mathjax javascript
+Python interpreter in PHP with built-in MathJax javascript
 
-Example code:
+Example code1 to running at pyPHP with MathJax:
 ```
 from sympy import *
 from sympy.printing.mathml import mathml
@@ -21,4 +21,27 @@ print(latex(diff(u(x,y,z),x)))
 print("$$")
 ```
 
-Note: Without `print("$$")` at two sides of each LaTeX format formula, It will print plain text of LaTeX format formula instead of Mathjax printing.
+Example code2 to running at pyPHP with MathJax:
+```
+from sympy import *
+from sympy.printing.mathml import mathml
+init_printing(use_unicode=True)
+
+r, theta, phi, I, l, K, Z0 = symbols('r theta phi I l K Z0', real=True)
+
+E_theta = ((1j * K * I * l * Z0) / (4 * pi * r)) * sin(theta) * exp(-1j * K * r)
+H_phi = E_theta / Z0
+S_theta = 0.5 * re(E_theta * conjugate(H_phi))
+P_rad = integrate(integrate(S_theta * r**2 * sin(theta), (theta, 0, pi)), (phi, 0, 2*pi))
+Rr = 2 * P_rad / I**2
+
+print("$$")
+print(latex(P_rad))
+print("$$")
+
+print("$$")
+print(latex(Rr))
+print("$$")
+```
+
+Note: Without `print("$$")` at two sides of each LaTeX format formula, It will print plain text of LaTeX format formula instead of MathJax printing.
